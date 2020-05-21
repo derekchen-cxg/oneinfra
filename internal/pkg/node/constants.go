@@ -16,6 +16,12 @@
 
 package node
 
+import (
+	"path/filepath"
+
+	"github.com/oneinfra/oneinfra/pkg/constants"
+)
+
 const (
 	systemdDir = "/etc/systemd/system"
 
@@ -38,4 +44,8 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 `
+)
+
+var (
+	wireguardConfigPath = filepath.Join(constants.OneInfraConfigDir, "wg0.conf")
 )

@@ -40,7 +40,7 @@ RECONCILED_CLUSTER_CONF=$(mktemp /tmp/reconciled-cluster-${INFRA_TEST_CLUSTER_NA
 
 echo "Reconciling infrastructure"
 cat ${CLUSTER_CONF} | \
-    oi cluster inject --name "${CLUSTER_NAME}" --kubernetes-version "${KUBERNETES_VERSION}" --control-plane-replicas 3 | \
+    oi cluster inject --name "${CLUSTER_NAME}" --vpn-enabled --kubernetes-version "${KUBERNETES_VERSION}" --control-plane-replicas 3 | \
     oi reconcile -v 2 > ${RECONCILED_CLUSTER_CONF}
 
 mv ${RECONCILED_CLUSTER_CONF} ${CLUSTER_CONF}
